@@ -27,6 +27,7 @@ CREATE TABLE IF NOT EXISTS `lab08`.`estudiante` (
   `especialidad` VARCHAR(45) NOT NULL,
   `contrasenha` VARCHAR(45) NOT NULL,
   `statusestudiante` VARCHAR(45) NOT NULL,
+  `contrasenhahash` VARCHAR(70) NOT NULL,
   PRIMARY KEY (`idestudiante`),
   UNIQUE INDEX `idestudiante_UNIQUE` (`idestudiante` ASC) VISIBLE)
 ENGINE = InnoDB;
@@ -52,20 +53,21 @@ CREATE TABLE IF NOT EXISTS `lab08`.`viaje` (
   `ciudadorigen` VARCHAR(45) NOT NULL,
   `ciudaddestino` VARCHAR(45) NOT NULL,
   `numboletos` INT NOT NULL,
+  `costoboleto` DOUBLE NULL,
   `costototal` DOUBLE NOT NULL,
   `empresaSeguro_idempresaSeguro` INT NOT NULL,
   `estudiante_idestudiante` INT NOT NULL,
   PRIMARY KEY (`idviaje`),
-  INDEX `fk_viaje_empresaSeguro1_idx` (`empresaSeguro_idempresaSeguro` ASC) VISIBLE,
   INDEX `fk_viaje_estudiante1_idx` (`estudiante_idestudiante` ASC) VISIBLE,
-  CONSTRAINT `fk_viaje_empresaSeguro1`
-    FOREIGN KEY (`empresaSeguro_idempresaSeguro`)
-    REFERENCES `lab08`.`empresaSeguro` (`idempresaSeguro`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+  INDEX `fk_viaje_empresaSeguro1_idx` (`empresaSeguro_idempresaSeguro` ASC) VISIBLE,
   CONSTRAINT `fk_viaje_estudiante1`
     FOREIGN KEY (`estudiante_idestudiante`)
     REFERENCES `lab08`.`estudiante` (`idestudiante`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_viaje_empresaSeguro1`
+    FOREIGN KEY (`empresaSeguro_idempresaSeguro`)
+    REFERENCES `lab08`.`empresaSeguro` (`idempresaSeguro`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
