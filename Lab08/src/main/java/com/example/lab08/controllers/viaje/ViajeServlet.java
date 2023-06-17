@@ -19,7 +19,7 @@ public class ViajeServlet extends HttpServlet {
         switch(action){
             //ANDO EN DUDA DE COMO VA A RELACIONARSE EL ID DEL INICIO DE SESIÓN CON EL SABER SI SON SUS VIAJES
             case "listar":
-                int idEstudiante= Integer.parseInt("idEstudiante");
+                int idEstudiante = Integer.parseInt(request.getParameter("idEstudiante"));
                 request.setAttribute("listaViajes",viajeDao.listaViajes(idEstudiante));
                 request.getRequestDispatcher("viaje/listaViajes.jsp").forward(request,response);
                 break;
