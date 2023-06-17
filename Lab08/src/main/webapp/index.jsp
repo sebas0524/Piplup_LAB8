@@ -19,7 +19,8 @@
 
         .login-form {
             margin: 0 auto;
-            max-width: 800px;
+            width: 500px;
+            height: 500px;
             padding: 20px;
             background-color: black;
             border-radius: 5px;
@@ -67,7 +68,7 @@
 <body>
 
 <div class="login-form">
-    <img src="recursos/logo.png" alt="Logo" width="300px" height="auto">
+    <img src="recursos/logo.png" alt="Logo" width="250px" height="auto" >
     <h5 class="text-white justify-content-center">Bienvenido Televiajero</h5>
     <form>
         <input placeholder="Usuario" type="text" id="username" name="username"><br>
