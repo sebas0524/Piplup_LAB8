@@ -6,89 +6,37 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
-        <a class="navbar-brand" href="<%=request.getContextPath()%>/hello-servlet">¡Disfruta de los televiajes¡ </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a  href="">Nombres y Apellidos</a>
-                </li>
-                <li class="nav-item">
-                    <a href="">Status del estudiante</a>
-                </li>
-                <li class="nav-item">
-                    <a href="">Cerrar Sesión</a>
-                </li>
+<!DOCTYPE html>
 
-            </ul>
-        </div>
-    </nav>
-<style>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="<%=request.getContextPath()%>/ViajeServlet">Bienvenido al Mundo Televiaje </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link <%=request.getParameter("page").equals("jugadores")? "active": "" %>" href=" ">Nombres y Apellidos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <%=request.getParameter("page").equals("seleccion")? "active": "" %>" href=" ">Status Estudiante</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link <%=request.getParameter("page").equals("seleccion")? "active": "" %>" href="<%=request.getContextPath()%>/listaSelecciones">Cerrar Sesión</a>
+            </li>
 
-    body {
-        background-image: url("recursos/fondopantalla.jpg");
-        background-color: black;
-        color: white;
-        font-family: Calibri, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-    }
+        </ul>
+    </div>
+</nav>
 
-    .login-form {
-        margin: 0 auto;
-        max-width: 800px;
-        padding: 20px;
-        background-color: black;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    }
 
-    .login-form input[type="text"],
-    .login-form input[type="password"] {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        background-color: white;
-        border: none;
-        border-radius: 3px;
-        color: black;
-    }
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-    .login-form input[type="submit"] {
-        width: 100%;
-        padding: 10px;
-        background-color: #4CAF50;
-        border: none;
-        border-radius: 3px;
-        color: white;
-        cursor: pointer;
-    }
-
-    .login-form input[type="submit"]:hover {
-        background-color: #45a049;
-    }
-    .login-form h5 {
-        text-align: center;
-        margin-bottom: 10px;
-    }
-    .centered {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-</style>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'/>
-<title>LAB 7</title>
-</head>
-<body>
-</body>
-</html>
