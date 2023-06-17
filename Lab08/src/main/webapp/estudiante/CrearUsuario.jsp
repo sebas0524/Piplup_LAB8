@@ -15,7 +15,7 @@
     <title>Iniciar sesión</title>
     <style>
         body {
-            background-image: url("/recursos/fondo.jpg");
+            background-image: url("recursos/fondo.jpg");
             background-color: black;
             color: white;
             font-family: Calibri, sans-serif;
@@ -115,33 +115,36 @@
     <h5 class="text-white justify-content-center">Crea tu cuenta Televiajero</h5>
     <hr>
     <hr>
-    <form method="POST" action="hr">
+    <form method="POST" action="<%=request.getContextPath()%>/CrearEstudianteServlet">
         <div class="form-group">
             <div class="form-group row">
                 <div class="col-sm-6 mb-sm-0">
-                    <input type="text" class="form-control" id="nombres" placeholder="Nombres">
+                    <input type="text" class="form-control" name="nombre" placeholder="Nombres">
                 </div>
                 <div class="col-sm-6 mb-sm-0">
-                    <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                    <input type="text" class="form-control" name="apellidos" placeholder="Apellidos">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-6 mb-sm-0">
-                    <input type="number" class="form-control" id="edad" placeholder="Edad">
+                    <input type="number" class="form-control" name="edad" placeholder="Edad">
                 </div>
                 <div class="col-sm-6 mb-sm-0">
-                    <input type="email" class="form-control" id="codigo_pucp" placeholder="Código Pucp">
+                    <input type="text" class="form-control" name="codigo_pucp" placeholder="Código Pucp">
                 </div>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" id="email" placeholder="Correo Electrónico">
+                <input type="email" class="form-control" name="email" placeholder="Correo Electrónico">
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="especialidad" placeholder="Especialidad">
             </div>
             <div class="form-group row">
                 <div class="col-sm-6 mb-3">
-                    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña">
+                    <input type="password" class="form-control" name="contraseña" placeholder="Contraseña">
                 </div>
                 <div class="col-sm-6 mb-3">
-                    <input type="password" class="form-control" id="contraseñaconfirmada" placeholder="Confirmar Contraseña">
+                    <input type="password" class="form-control" name="contraseñaConfirmada" placeholder="Confirmar Contraseña">
                 </div>
             </div>
         </div>

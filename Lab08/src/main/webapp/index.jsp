@@ -113,7 +113,7 @@
             <input type="submit" class ="btn-outline-primary" value="Ingresar">
         </div>
         <div class="centered">
-            <a class="btn btn-outline-primary" href="#">Soy nuevo y quiero registrarme</a>
+            <a class="btn btn-outline-primary" href="<%=request.getContextPath()%>/CrearEstudianteServlet">Soy nuevo y quiero registrarme</a>
         </div>
 
     </form>
