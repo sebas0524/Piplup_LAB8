@@ -1,12 +1,21 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: PABLO
+  Date: 17/06/2023
+  Time: 12:17
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
 <head>
     <title>Iniciar sesión</title>
     <style>
-
         body {
-            background-image: url("recursos/fondo.jpg");
+            background-image: url("/recursos/fondo.jpg");
             background-color: black;
             color: white;
             font-family: Calibri, sans-serif;
@@ -20,7 +29,7 @@
         .login-form {
             margin: 0 auto;
             width: 500px;
-            height: 580px;
+            height: 450px;
             padding: 20px;
             background-color: black;
             border-radius: 5px;
@@ -28,10 +37,12 @@
         }
 
         .login-form input[type="text"],
-        .login-form input[type="password"] {
+        .login-form input[type="password"],
+        .login-form input[type="number"],
+        .login-form input[type="email"] {
             width: 100%;
             padding: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 2px;
             background-color: white;
             border: none;
             border-radius: 3px;
@@ -39,33 +50,35 @@
         }
 
         .login-form input[type="submit"]{
-            width: 30%;
+            width: 60%;
             padding: 5px;
-            background-color: transparent;
-            border: 2px solid darkblue;
+            background-color: green;
+            border: 2px solid green;
             border-radius: 20px;
-            color: darkblue;
+            color: white;
             cursor: pointer;
             text-decoration: none;
             display: block;
             text-align: center;
-            margin-bottom: 5px;
+            margin: 0 auto 5px;
             transition: background-color 0.3s, color 0.3s;
         }
 
-
         .login-form input[type="submit"]:hover {
-            background-color: white;
+            background-color: limegreen;
         }
+
         .login-form h5 {
             text-align: center;
             margin-bottom: 10px;
         }
+
         .centered {
             display: flex;
             justify-content: center;
             align-items: center;
         }
+
         .logo {
             display: block;
             margin: 0 auto;
@@ -74,10 +87,10 @@
         .login-form a {
             width: 60%;
             padding: 1px;
-            background-color: whitesmoke;
-            border: 2px solid darkblue;
+            background-color: darkgreen;
+            border: 2px solid darkgreen;
             border-radius: 10px;
-            color: dodgerblue;
+            color: white;
             cursor: pointer;
             text-decoration: none;
             display: block;
@@ -85,12 +98,12 @@
             margin-bottom: 5px;
             transition: background-color 0.3s, color 0.3s;
         }
+
         .small-hr {
             margin: 5px 0;
             border: none;
             border-top: transparent;
         }
-
     </style>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css'/>
@@ -99,24 +112,44 @@
 <body>
 
 <div class="login-form">
-    <img src="recursos/logo.png" alt="Logo" class="logo" width="280px" height="auto">
+    <h5 class="text-white justify-content-center">Crea tu cuenta Televiajero</h5>
     <hr>
-    <h5 class="text-white justify-content-center">Bienvenido Televiajero</h5>
-    <form method="POST" action="<%=request.getContextPath()%>/LoginServlet">
-        <input class="form-control" placeholder="Usuario" type="email"  name="username" autofocus="" ><br>
-
-        <input class= "form-control" placeholder="Contraseña" type="password"  name="password" autofocus=""><br>
-        <% if (request.getParameter("error") != null) { %>
-        <div class = "text-danger justify-content-center"><span>Error en usuario o contraseña</span></div>
-        <% } %>
-        <div class="centered">
-            <input type="submit" class ="btn-outline-primary" value="Ingresar">
+    <hr>
+    <form method="POST" action="hr">
+        <div class="form-group">
+            <div class="form-group row">
+                <div class="col-sm-6 mb-sm-0">
+                    <input type="text" class="form-control" id="nombres" placeholder="Nombres">
+                </div>
+                <div class="col-sm-6 mb-sm-0">
+                    <input type="text" class="form-control" id="apellidos" placeholder="Apellidos">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6 mb-sm-0">
+                    <input type="number" class="form-control" id="edad" placeholder="Edad">
+                </div>
+                <div class="col-sm-6 mb-sm-0">
+                    <input type="email" class="form-control" id="codigo_pucp" placeholder="Código Pucp">
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" placeholder="Correo Electrónico">
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6 mb-3">
+                    <input type="password" class="form-control" id="contraseña" placeholder="Contraseña">
+                </div>
+                <div class="col-sm-6 mb-3">
+                    <input type="password" class="form-control" id="contraseñaconfirmada" placeholder="Confirmar Contraseña">
+                </div>
+            </div>
         </div>
         <div class="centered">
-            <a class="btn btn-outline-primary" href="#">Soy nuevo y quiero registrarme</a>
+            <input type="submit" value="Ingresar">
         </div>
-
     </form>
+
 </div>
 
 
