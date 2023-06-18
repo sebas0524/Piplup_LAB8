@@ -16,7 +16,7 @@ public class BorrarViajeServlet extends HttpServlet {
         ViajeDao viajeDao=new ViajeDao();
         int id= Integer.parseInt(request.getParameter("id"));
         viajeDao.BorrarViaje(id);
-        response.sendRedirect(request.getContextPath() + "/ViajeServlet");
+        response.sendRedirect(request.getContextPath() + "/ViajeServlet?action=listar");
     }
 
     @Override

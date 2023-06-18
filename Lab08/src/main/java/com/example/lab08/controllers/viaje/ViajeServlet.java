@@ -29,6 +29,7 @@ public class ViajeServlet extends HttpServlet {
                 request.setAttribute("EditarViaje",viajeDao.listaConfViajes(id));
                 request.getRequestDispatcher("viaje/editarViajes.jsp").forward(request,response);
                 break;
+
         }
     }
 

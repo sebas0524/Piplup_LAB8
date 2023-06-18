@@ -9,7 +9,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% Viaje viaje = (Viaje) request.getAttribute("EditarViaje");%>
+<% Viaje viaje1 = (Viaje) request.getAttribute("EditarViaje");%>
+
 <% ArrayList<Viaje> listaviaje =(ArrayList<Viaje>) request.getAttribute("listaViajes");%>
 <html>
 <jsp:include page="/static/head.jsp">
@@ -52,41 +53,41 @@
                         <div class="bg-light rounded h-100 p-4">
                             <h4><p style="text-align:center">Configurar Detalles del Viaje</p></h4>
                             <form method="POST" action="<%=request.getContextPath()%>/ViajeServlet">
-                                <input class="form-control" type="text" name="idviaje" id="idviaje" value="<%=viaje.getIdviaje()%>" hidden="">
+                                <input class="form-control" type="text" name="idviaje" id="idviaje" value="<%=viaje1.getIdviaje()%>" hidden="">
                                 <div class="mb-3">
                                     <h6><label class="form-label">Fecha de Reserva</label></h6>
-                                    <input class="form-control" type="text" name="fechareserva" id="fechareserva" value="<%=viaje.getFechareserva()%>">
+                                    <input class="form-control" type="text" name="fechareserva" id="fechareserva" value="<%=viaje1.getFechareserva()%>">
                                 </div>
                                 <div class="mb-3">
                                     <h6><label class="form-label">Fecha de Viaje</label></h6>
-                                    <input class="form-control" type=text" name="fechaviaje"  id="fechaviaje" value="<%=viaje.getFechaviaje()%>">
+                                    <input class="form-control" type=text" name="fechaviaje"  id="fechaviaje" value="<%=viaje1.getFechaviaje()%>">
                                 </div>
                                 <div class="mb-3">
                                     <h6><label class="form-label">Ciudad de Origen</label></h6>
-                                    <input class="form-control" type="text"  name="ciudadorigen" id="ciudadorigen" value="<%=viaje.getCiudadorigen()%>" >
+                                    <input class="form-control" type="text"  name="ciudadorigen" id="ciudadorigen" value="<%=viaje1.getCiudadorigen()%>" >
                                 </div>
                                 <div class="mb-3">
                                     <h6><label class="form-label">Ciudad de Destino</label></h6>
-                                    <input class="form-control" type="text"  name="ciudaddestino" id="ciudaddestino" value="<%=viaje.getCiudaddestino()%>" >
+                                    <input class="form-control" type="text"  name="ciudaddestino" id="ciudaddestino" value="<%=viaje1.getCiudaddestino()%>" >
                                 </div>
                                 <div class="mb-3">
                                     <h6><label class="form-label">Empresa de Seguro</label></h6>
                                     <select name="seguro" id="seguro" class="fomr-control">
                                         <option value="0">Escoja un Asegurada</option>
-                                        <%for(Viaje viaje1 : listaviaje) {%>
+                                        <%for(Viaje viaje2 : listaviaje) {%>
                                        <option
-                                           value="<%=viaje1.getEmpresa().getIdEmpresa()%>"><%viaje1.getEmpresa().getNombre();%>
+                                           value="<%=viaje2.getEmpresa().getIdEmpresa()%>"><%viaje2.getEmpresa().getNombre();%>
                                        </option>
                                         <%}%>
                                     </select>
                                 </div>
                                 <div class="mb-3">
                                     <h6><label class="form-label">Número de boletos</label></h6>
-                                    <input class="form-control" type="text"  name="numboletos" id="numboletos" value="<%=viaje.getCiudaddestino()%>" >
+                                    <input class="form-control" type="text"  name="numboletos" id="numboletos" value="<%=viaje1.getCiudaddestino()%>" >
                                 </div>
                                 <div class="mb-3">
                                     <h6><label class="form-label">Costo Total</label></h6>
-                                    <input class="form-control" type="text"  name="costototal" id="costototal" value="<%=viaje.getCiudaddestino()%>" >
+                                    <input class="form-control" type="text"  name="costototal" id="costototal" value="<%=viaje1.getCiudaddestino()%>" >
                                 </div>
                                 <div class="m-auto">
                                     <a class="btn btn-danger" href="<%=request.getContextPath()%>/ViajeServlet">Cancelar</a>
