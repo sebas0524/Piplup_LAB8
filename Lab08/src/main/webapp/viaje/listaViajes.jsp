@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% ArrayList<Viaje> listaViaje = (ArrayList<Viaje>) request.getAttribute("listaViajes");%>
+<% ArrayList<Viaje> listaViajes = (ArrayList<Viaje>) request.getAttribute("listaViajes");%>
 
 <html>
 <jsp:include page="/static/head.jsp">
@@ -21,7 +21,7 @@
     <div class="pb-5 pt-4 px-3 titlecolor">
         <div class="col-lg-6">
             <h1 class='text-light'>!Estas es tu lista de viajes¡</h1>
-            <!--<a class="btn btn-success" href="<%=request.getContextPath()%>/JugadorServlet?a=crearJugador">Registrar Nuevo Viaje</a>-->
+            <!--<a class="btn btn-success" href="<%//=request.getContextPath()%>/JugadorServlet?a=crearJugador">Registrar Nuevo Viaje</a>-->
         </div>
     </div>
     <div class="tabla">
@@ -37,7 +37,7 @@
             <th>Costo Total</th>
             </thead>
             <%
-                for (Viaje viaje  : listaViaje) {
+                for (Viaje viaje  : listaViajes) {
             %>
             <tr>
                 <td><%=viaje.getIdviaje()%>
@@ -63,10 +63,10 @@
                     <%=viaje.getCostototal()%>
                 </td>
                 <td>
-                    <a><a type="button" class="btn btn-danger" href="<%=request.getContextPath()%>/BorrarViajeServlet?id=<%=viaje.getIdviaje()%>">Borrar Viaje</a></a>
+                    <a type="button" class="btn btn-success" href="<%=request.getContextPath()%>/ViajeServlet?idViaje=<%=viaje.getIdviaje()%>&action=editar">Editar Viaje</a>
                 </td>
                 <td>
-                    <a><a type="button" class="btn btn-danger" href="<%=request.getContextPath()%>/BorrarViajeServlet?id=<%=viaje.getIdviaje()%>">Borrar Viaje</a></a>
+                    <a type="button" class="btn btn-danger" href="<%=request.getContextPath()%>/BorrarViajeServlet?id=<%=viaje.getIdviaje()%>">Borrar Viaje</a>
                 </td>
 
 
@@ -81,4 +81,5 @@
 </div>
 <jsp:include page="/static/scripts.jsp"/>
 </body>
+
 </html>

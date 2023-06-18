@@ -18,39 +18,27 @@ public class ViajeDao extends DaoBase {
                 "inner join empresaseguro es on v.empresaSeguro_idempresaSeguro=es.idempresaSeguro where estudiante_idestudiante= ?";
 
         try(Connection connection=this.getConnection();
-            PreparedStatement pstmt=connection.prepareStatement(sql);
-            ResultSet resultSet=pstmt.executeQuery(sql)){
-            //ResultSet resultSet =stmt.executeQuery(sql)){
+            PreparedStatement pstmt=connection.prepareStatement(sql)){
             pstmt.setInt(1,idEstudiante);
-            while(resultSet.next()){
+            try(ResultSet resultSet =pstmt.executeQuery()){
 
-                Viaje viaje=new Viaje();
-                //EmpresaSeguro empresaSeguro=new EmpresaSeguro();
-                viaje.setIdviaje(resultSet.getInt(1));
-                viaje.setFechareserva(resultSet.getDate(2));
-                viaje.setFechaviaje(resultSet.getDate(3));
-                viaje.setCiudadorigen(resultSet.getString(4));
-                viaje.setCiudaddestino(resultSet.getString(5));
-                EmpresaSeguro empresaSeguro=new EmpresaSeguro();
-                empresaSeguro.setNombre(resultSet.getString(6));
-                viaje.setEmpresa(empresaSeguro);
-                viaje.setNumboletos(resultSet.getInt(7));
-                viaje.setCostototal(resultSet.getDouble(8));
+                while (resultSet.next()) {
 
+                    Viaje viaje = new Viaje();
 
-                /*
-                pstmt.setInt(1,viaje.getIdviaje());
-                pstmt.setDate(2,viaje.getFechareserva());
-                pstmt.setDate(3,viaje.getFechaviaje());
-                pstmt.setString(4,viaje.getCiudadorigen());
-                pstmt.setString(5,viaje.getCiudaddestino());
-                EmpresaSeguro empresaSeguro=new EmpresaSeguro();
-                empresaSeguro.setNombre(resultSet.getString(6));
-                //pstmt.setString(6,viaje.getEmpresa().getNombre());
-                pstmt.setInt(7,viaje.getNumboletos());
-                pstmt.setDouble(8,viaje.getCostototal());*/
+                    viaje.setIdviaje(resultSet.getInt(1));
+                    viaje.setFechareserva(resultSet.getDate(2));
+                    viaje.setFechaviaje(resultSet.getDate(3));
+                    viaje.setCiudadorigen(resultSet.getString(4));
+                    viaje.setCiudaddestino(resultSet.getString(5));
+                    EmpresaSeguro empresaSeguro = new EmpresaSeguro();
+                    empresaSeguro.setNombre(resultSet.getString(6));
+                    viaje.setEmpresa(empresaSeguro);
+                    viaje.setNumboletos(resultSet.getInt(7));
+                    viaje.setCostototal(resultSet.getDouble(8));
 
-                listaviajes.add(viaje);
+                    listaviajes.add(viaje);
+                }
             }
 
         }
@@ -89,7 +77,7 @@ public class ViajeDao extends DaoBase {
 
         String sql="UPDATE  viaje SET fechareserva=?,fechaviaje=?,ciudadorigen=?,ciudaddestino=?,empresaSeguro_idempresaSeguro=?,numboletos=?,costotoal=? WHERE idviaje=?";
         try(Connection connection =this.getConnection();
-           PreparedStatement pstmt=connection.prepareStatement(sql)){
+            PreparedStatement pstmt=connection.prepareStatement(sql)){
 
             pstmt.setDate(1,viaje.getFechareserva());
             pstmt.setDate(2,viaje.getFechaviaje());
@@ -110,7 +98,7 @@ public class ViajeDao extends DaoBase {
 
         String sql="DELETE FROM viaje WHERE idviaje = ?";
         try(Connection connection=this.getConnection() ;
-        PreparedStatement pstmt=connection.prepareStatement(sql)){
+            PreparedStatement pstmt=connection.prepareStatement(sql)){
             pstmt.setString(1,idviaje);
             pstmt.executeUpdate();
 

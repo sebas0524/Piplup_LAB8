@@ -16,7 +16,7 @@ public class CrearViajeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ViajeDao viajeDao = new ViajeDao();
         //request.setAttribute("listViajes",viajeDao.listaViajes());
-        request.getRequestDispatcher("nuevoViaje.jsp").forward(request,response);
+        request.getRequestDispatcher("NuevoViaje.jsp").forward(request,response);
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

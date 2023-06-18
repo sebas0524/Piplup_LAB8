@@ -14,10 +14,10 @@ public class ViajeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ViajeDao viajeDao=new ViajeDao();
-        String action =request.getParameter("a")==null ? "listar ": request.getParameter("a");
+        String action = request.getParameter("action") == null ? "listar" : request.getParameter("action");
+
 
         switch(action){
-            //ANDO EN DUDA DE COMO VA A RELACIONARSE EL ID DEL INICIO DE SESIÓN CON EL SABER SI SON SUS VIAJES
             case "listar":
                 int idEstudiante = Integer.parseInt(request.getParameter("idEstudiante"));
                 request.setAttribute("listaViajes",viajeDao.listaViajes(idEstudiante));
@@ -26,7 +26,7 @@ public class ViajeServlet extends HttpServlet {
             case "editar":
                 String id =request.getParameter("id");
                 request.setAttribute("viaje",viajeDao.listaConfViajes(Integer.parseInt(id)));
-                request.getRequestDispatcher("viaje/editarViajes.jsp");
+                request.getRequestDispatcher("viaje/editarViajes.jsp").forward(request,response);
                 break;
         }
     }
