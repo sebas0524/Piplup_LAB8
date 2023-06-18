@@ -10,6 +10,7 @@
 <!DOCTYPE html>
 <% ArrayList<Viaje> listaViajes = (ArrayList<Viaje>) request.getAttribute("listaViajes");%>
 <% Viaje viaeje = (Viaje) request.getAttribute("");%>
+<jsp:useBean id="estudianteSession" type="com.example.lab08.models.beans.estudiante.Estudiante" scope="session" class="com.example.lab08.models.beans.estudiante.Estudiante"/>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="<%=request.getContextPath()%>/ViajeServlet">Bienvenido al Mundo Televiaje </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -18,15 +19,14 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("jugadores")? "active": "" %>" value=" ">Nombres y apellidos</a>
+                <a class="nav-link <%=request.getParameter("page").equals("jugadores")? "active": "" %>" value=" "><%=estudianteSession.getNombre()%> <%=estudianteSession.getApellido()%></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("seleccion")? "active": "" %>" href=" ">Status Estudiante</a>
+                <a class="nav-link <%=request.getParameter("page").equals("seleccion")? "active": "" %>" href=" ">Status: <%=estudianteSession.getStatus()%></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("seleccion")? "active": "" %>" href="<%=request.getContextPath()%>/listaSelecciones">Cerrar Sesión</a>
+                <a class="nav-link <%=request.getParameter("page").equals("seleccion")? "active": "" %>" href="<%=request.getContextPath()%>/LoginServlet?action=logout">Cerrar Sesión</a>
             </li>
-
         </ul>
     </div>
 </nav>
