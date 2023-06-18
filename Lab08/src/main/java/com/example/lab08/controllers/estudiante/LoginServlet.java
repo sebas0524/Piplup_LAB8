@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
         if(estudiante != null && estudiante.getEspecialidad().equals("Telecomunicaciones")){
             HttpSession session = request.getSession();
             session.setAttribute("estudianteSession",estudiante);
-            session.setMaxInactiveInterval(5*60);
+            session.setMaxInactiveInterval(10*60);
 
             //response.sendRedirect(request.getContextPath() + "/ViajeServlet");
             response.sendRedirect(request.getContextPath() + "/ViajeServlet?idEstudiante=" + estudiante.getIdEstudiante());

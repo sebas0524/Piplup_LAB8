@@ -1,6 +1,7 @@
 package com.example.lab08.controllers.estudiante;
 
 
+import java.lang.*;
 import com.example.lab08.models.beans.estudiante.Estudiante;
 import com.example.lab08.models.daos.estudiante.CrearEstudianteDao;
 import jakarta.servlet.RequestDispatcher;
@@ -25,12 +26,67 @@ public class CrearEstudianteServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         CrearEstudianteDao crearEstudianteDao = new CrearEstudianteDao();
+        //1era validacion
+        int validacion1 = 0;
+        if (!request.getParameter("nombre").matches("^\\d.*")) {
+            if (!request.getParameter("apellidos").matches("^\\d.*")) {
+                validacion1=1 ;
+            } else {
 
-        Estudiante estudiante = parseEstudiante(request);
-        crearEstudianteDao.guardarEstudiante(estudiante);
+            }
+        } else {
 
-        response.sendRedirect(request.getContextPath() + "/LoginServlet");
+        }
 
+        //2da validacion
+        int validacion2=0 ;
+
+        if(Integer.parseInt(request.getParameter("edad"))>=18 && Integer.parseInt(request.getParameter("edad"))< 30){
+            validacion2=1 ;
+        }else{
+
+        }
+
+        //3ra validacion
+        int validacion3 = 0;
+        if (request.getParameter("codigo_pucp").length() == 8 && request.getParameter("codigo_pucp").matches("\\d+")) {
+            validacion3 = 1;
+        } else {
+
+        }
+
+
+        //4ta validacion
+        int validacion4 = 0;
+        if (request.getParameter("email").matches("^a" + request.getParameter("codigo_pucp") + "@pucp\\.edu\\.pe$")) {
+            validacion4 = 1;
+        } else {
+
+
+        }
+
+
+        //5ta y 6ta validacion
+        int validacion6 = 0;
+
+        if (request.getParameter("contraseña").equals(request.getParameter("contraseñaConfirmada"))) {
+            if (request.getParameter("contraseñaConfirmada").matches(".*[A-Z].*") && request.getParameter("contraseñaConfirmada").matches(".*\\d.*") && request.getParameter("contraseñaConfirmada").matches(".*[^a-zA-Z0-9].*")) {
+                validacion6= 1;
+            } else {
+
+            }
+        } else {
+
+        }
+
+        if((validacion1==1) && (validacion2==1) && (validacion3==1) && (validacion4==1) && (validacion6==1)){
+
+            Estudiante estudiante = parseEstudiante(request);
+            crearEstudianteDao.guardarEstudiante(estudiante);
+            response.sendRedirect(request.getContextPath() + "/LoginServlet");
+        }else{
+            response.sendRedirect(request.getContextPath()+ "/CrearEstudianteServlet?error");
+        }
 
     }
 
@@ -52,7 +108,6 @@ public class CrearEstudianteServlet extends HttpServlet {
             int edad = Integer.parseInt(edadstr);
             int codigopucp = Integer.parseInt(codigopucpstr);
 
-
             estudiante.setNombre(nombre);
             estudiante.setApellido(apellido);
             estudiante.setEdad(edad);
@@ -60,9 +115,8 @@ public class CrearEstudianteServlet extends HttpServlet {
             estudiante.setCorreopucp(correopucp);
             estudiante.setStatus(status);
             estudiante.setEspecialidad(especialidad);
-            if (contrasenha.equals(contrasenhaConfirmada)){
-                estudiante.setContrasenha(contrasenhaConfirmada);
-            }
+            estudiante.setContrasenha(contrasenhaConfirmada);
+
             return estudiante;
         }catch (NumberFormatException e){
 

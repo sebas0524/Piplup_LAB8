@@ -113,8 +113,6 @@
 
 <div class="login-form">
     <h5 class="text-white justify-content-center">Crea tu cuenta Televiajero</h5>
-    <hr>
-    <hr>
     <form method="POST" action="<%=request.getContextPath()%>/CrearEstudianteServlet">
         <div class="form-group">
             <div class="form-group row">
@@ -130,23 +128,26 @@
                     <input type="number" class="form-control" name="edad" placeholder="Edad">
                 </div>
                 <div class="col-sm-6 mb-sm-0">
-                    <input type="text" class="form-control" name="codigo_pucp" placeholder="Código Pucp">
+                    <input type="text" class="form-control" name="codigo_pucp" placeholder="Código Pucp(8 digitos)">
                 </div>
             </div>
             <div class="form-group">
-                <input type="email" class="form-control" name="email" placeholder="Correo Electrónico">
+                <input type="email" class="form-control" name="email" placeholder="Correo Electrónico (solo correos con el siguiente formato a<codigopucp>@pucp.edu.pe">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control" name="especialidad" placeholder="Especialidad">
             </div>
             <div class="form-group row">
                 <div class="col-sm-6 mb-3">
-                    <input type="password" class="form-control" name="contraseña" placeholder="Contraseña">
+                    <input type="password" class="form-control" name="contraseña" placeholder="Contraseña(debe incluir una mayúscula, número y caracter especial">
                 </div>
                 <div class="col-sm-6 mb-3">
                     <input type="password" class="form-control" name="contraseñaConfirmada" placeholder="Confirmar Contraseña">
                 </div>
             </div>
+            <% if (request.getParameter("error") != null) { %>
+            <div class = "text-danger justify-content-center"><span>Error al registrarse. Intentelo Nuevamente.</span></div>
+            <% } %>
         </div>
         <div class="centered">
             <input type="submit" value="Ingresar">
