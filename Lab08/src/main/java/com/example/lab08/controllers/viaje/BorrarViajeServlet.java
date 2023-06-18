@@ -14,7 +14,7 @@ public class BorrarViajeServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
         ViajeDao viajeDao=new ViajeDao();
-        String id= request.getParameter("id");
+        int id= Integer.parseInt(request.getParameter("id"));
         viajeDao.BorrarViaje(id);
         response.sendRedirect(request.getContextPath() + "/ViajeServlet");
     }

@@ -8,6 +8,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.Random;
 
 @WebServlet(name = "ViajeServlet", value = "/ViajeServlet")
 public class ViajeServlet extends HttpServlet {
@@ -25,7 +26,7 @@ public class ViajeServlet extends HttpServlet {
                 break;
             case "editar":
                 String id =request.getParameter("id");
-                request.setAttribute("viaje",viajeDao.listaConfViajes(Integer.parseInt(id)));
+                request.setAttribute("EditarViaje",viajeDao.listaConfViajes(id));
                 request.getRequestDispatcher("viaje/editarViajes.jsp").forward(request,response);
                 break;
         }
@@ -37,14 +38,16 @@ public class ViajeServlet extends HttpServlet {
         ViajeDao viajeDao=new ViajeDao();
         Viaje viaje2 = parseViaje(request);
         viajeDao.EditarViaje(viaje2);
-        response.sendRedirect(request.getContextPath() + "/viaje/ViajeServlet");
+        response.sendRedirect(request.getContextPath() + "/ViajeServlet");
 
 
     }
     public Viaje parseViaje(HttpServletRequest request){
         Viaje viaje=new Viaje();
-        //EmpresaSeguro empresaSeguro=new EmpresaSeguro();
+        Random random =new Random();
 
+        //int numeroRand =random.nextInt(100000000);
+        //EmpresaSeguro empresaSeguro=new EmpresaSeguro();
         String idviajeStr=request.getParameter("idviaje");
         String fechareservaStr=request.getParameter("fechareserva");
         String fechaviajeStr=request.getParameter("fechaviaje");
@@ -54,7 +57,8 @@ public class ViajeServlet extends HttpServlet {
         String numboletosStr=request.getParameter("numboletos");
         String costototalStr=request.getParameter("costototal");
         try{
-            viaje.setIdviaje(Integer.parseInt(idviajeStr));
+
+            //viaje.setIdviaje(Integer.parseInt(idviajeStr));
             viaje.setFechareserva(Date.valueOf(fechareservaStr));
             viaje.setFechaviaje(Date.valueOf(fechaviajeStr));
             viaje.setCiudaddestino(ciudadorigen);

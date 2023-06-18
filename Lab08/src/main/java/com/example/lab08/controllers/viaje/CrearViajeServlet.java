@@ -9,6 +9,7 @@ import jakarta.servlet.annotation.*;
 
 import java.io.IOException;
 import java.sql.Date;
+import java.util.Random;
 
 @WebServlet(name = "CrearViajeServlet", value = "/CrearViajeServlet")
 public class CrearViajeServlet extends HttpServlet {
@@ -20,16 +21,24 @@ public class CrearViajeServlet extends HttpServlet {
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        ViajeDao viajeDao=new ViajeDao();
+        Viaje viaje1=parseViaje(request);
+        viajeDao.AñadirViaje(viaje1);
+        response.sendRedirect(request.getContextPath() + "/CrearViajeServlet");
 
-        ViajeDao viajeDao = new ViajeDao();
-        //EmpresaSeguro empresaSeguro=new EmpresaSeguro();
+
 
     }
     public Viaje parseViaje(HttpServletRequest request){
         Viaje viaje=new Viaje();
+        //Random random = new Random();
         //EmpresaSeguro empresaSeguro=new EmpresaSeguro();
 
         String idviajeStr=request.getParameter("idviaje");
+
+        //String idviajeStr= String.valueOf(random.nextInt(100000000));
+        //String hola=request.getParameter("ssss");
+        //LocalDate fechare
         String fechareservaStr=request.getParameter("fechareserva");
         String fechaviajeStr=request.getParameter("fechaviaje");
         String ciudadorigen=request.getParameter("ciudadorigen");
@@ -47,9 +56,7 @@ public class CrearViajeServlet extends HttpServlet {
             viaje.setNumboletos(Integer.parseInt(numboletosStr));
             viaje.setCostototal(Double.parseDouble(costototalStr));
 
-
             return viaje;
-
 
         }catch (NumberFormatException e){
 

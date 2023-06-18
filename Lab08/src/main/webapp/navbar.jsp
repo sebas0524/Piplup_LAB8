@@ -1,4 +1,5 @@
-<%--
+<%@ page import="com.example.lab08.models.beans.viaje.Viaje" %>
+<%@ page import="java.util.ArrayList" %><%--
   Created by IntelliJ IDEA.
   User: sebas
   Date: 17/06/2023
@@ -7,7 +8,8 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-
+<% ArrayList<Viaje> listaViajes = (ArrayList<Viaje>) request.getAttribute("listaViajes");%>
+<% Viaje viaeje = (Viaje) request.getAttribute("");%>
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="<%=request.getContextPath()%>/ViajeServlet">Bienvenido al Mundo Televiaje </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -16,7 +18,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("jugadores")? "active": "" %>" href=" ">Nombres y Apellidos</a>
+                <a class="nav-link <%=request.getParameter("page").equals("jugadores")? "active": "" %>" value="<%=viaje.getIdviaje()%>"</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <%=request.getParameter("page").equals("seleccion")? "active": "" %>" href=" ">Status Estudiante</a>

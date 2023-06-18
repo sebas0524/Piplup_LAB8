@@ -79,6 +79,7 @@ public class ViajeDao extends DaoBase {
         try(Connection connection =this.getConnection();
             PreparedStatement pstmt=connection.prepareStatement(sql)){
 
+
             pstmt.setDate(1,viaje.getFechareserva());
             pstmt.setDate(2,viaje.getFechaviaje());
             pstmt.setString(3,viaje.getCiudadorigen());
@@ -94,21 +95,21 @@ public class ViajeDao extends DaoBase {
         }
 
     }
-    public void BorrarViaje(String idviaje){
+    public void BorrarViaje(int idviaje){
 
         String sql="DELETE FROM viaje WHERE idviaje = ?";
         try(Connection connection=this.getConnection() ;
             PreparedStatement pstmt=connection.prepareStatement(sql)){
-            pstmt.setString(1,idviaje);
+            pstmt.setInt(1,idviaje);
             pstmt.executeUpdate();
 
         }
         catch (SQLException e){
-            throw  new RuntimeException(e);
+            e.printStackTrace();
         }
 
     }
-    public Viaje listaConfViajes(int idviaje){
+    public Viaje listaConfViajes(String idviaje){
         Viaje viaje=null;
         String sql="SELECT idViaje,fechareserva,fechaviaje,ciudadorigen,ciudaddestino,es.nombreseguro,numboletos,costototal FROM viaje v \n" +
                 "inner join estudiante e on v.estudiante_idestudiante=e.idestudiante\n" +
@@ -116,7 +117,7 @@ public class ViajeDao extends DaoBase {
         try(Connection connection=this.getConnection();
             PreparedStatement pstmt =connection.prepareStatement(sql)){
 
-            pstmt.setInt(1, idviaje);
+            pstmt.setString(1, idviaje);
 
             try(ResultSet rs= pstmt.executeQuery()){
                 if(rs.next()){
