@@ -49,7 +49,7 @@ DROP TABLE IF EXISTS `estudiante`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `estudiante` (
-  `idestudiante` int NOT NULL,
+  `idestudiante` int NOT NULL AUTO_INCREMENT,
   `nombre` varchar(45) NOT NULL,
   `apellido` varchar(45) NOT NULL,
   `edad` int NOT NULL,
@@ -58,9 +58,8 @@ CREATE TABLE `estudiante` (
   `especialidad` varchar(45) NOT NULL,
   `statusestudiante` varchar(45) NOT NULL,
   `contrasenhahash` varchar(70) NOT NULL,
-  PRIMARY KEY (`idestudiante`),
-  UNIQUE KEY `idestudiante_UNIQUE` (`idestudiante`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+  PRIMARY KEY (`idestudiante`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -126,4 +125,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-16 17:24:49
+-- Dump completed on 2023-06-17 22:17:59
