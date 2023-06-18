@@ -58,7 +58,7 @@ public class ViajeServlet extends HttpServlet {
         String costototalStr=request.getParameter("costototal");
         try{
 
-            //viaje.setIdviaje(Integer.parseInt(idviajeStr));
+            viaje.setIdviaje(Integer.parseInt(idviajeStr));
             viaje.setFechareserva(Date.valueOf(fechareservaStr));
             viaje.setFechaviaje(Date.valueOf(fechaviajeStr));
             viaje.setCiudaddestino(ciudadorigen);

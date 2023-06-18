@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link <%=request.getParameter("page").equals("jugadores")? "active": "" %>" value="<%=viaje.getIdviaje()%>"</a>
+                <a class="nav-link <%=request.getParameter("page").equals("jugadores")? "active": "" %>" value=" ">Nombres y apellidos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link <%=request.getParameter("page").equals("seleccion")? "active": "" %>" href=" ">Status Estudiante</a>
