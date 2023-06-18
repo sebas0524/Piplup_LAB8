@@ -1,0 +1,18 @@
+Correos                    Contraseñas
+juanperez@pucp.edu.pe      contrasena123
+
+marialopez@pucp.edu.pe     password123
+
+carlosgomez@pucp.edu.pe    securepass321
+
+anamartinez@pucp.edu.pe    pass123word
+
+stefanoromero@pucp.edu.pe  contra123pass
+
+gumerbartra@pucp.edu.pe    passwordplatinum123
+
+
+
+Estos correos y contraseñas no siguen las validaciones, ya que fueron creados directamente en base de datos para visualizar el funcionamiento de la página.
+
+Sin embargo, para crear un nuevo usuario, si deberá cumplir con las validaciones puesto que estas si están efectuadas. Es decir no le permitirán crear usuario si no las cumple.
