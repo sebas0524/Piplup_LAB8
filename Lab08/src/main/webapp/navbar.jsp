@@ -9,10 +9,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <% ArrayList<Viaje> listaViajes = (ArrayList<Viaje>) request.getAttribute("listaViajes");%>
-<% Viaje viaeje = (Viaje) request.getAttribute("");%>
+<% Viaje viaje = (Viaje) request.getAttribute("");%>
 <jsp:useBean id="estudianteSession" type="com.example.lab08.models.beans.estudiante.Estudiante" scope="session" class="com.example.lab08.models.beans.estudiante.Estudiante"/>
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark">
-    <a class="navbar-brand" href="<%=request.getContextPath()%>/ViajeServlet">Bienvenido al Mundo Televiaje </a>
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark"
+
+    <%if(estudianteSession.getStatus().equals("Normal")){%>
+        style="background-color: royalblue!important;"
+    <%}%>
+    <%if(estudianteSession.getStatus().equals("Silver")){%>
+        style="background-color: #5b5b5b!important;"
+    <%}%>
+    <%if(estudianteSession.getStatus().equals("Gold")){%>
+        style="background-color: #bf930d!important;"
+    <%}%>
+    <%if(estudianteSession.getStatus().equals("Platinum")){%>
+        style="background-color: black!important;"
+    <%}%>
+
+    <a class="navbar-brand" href=" ">Bienvenido al Mundo Televiaje </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

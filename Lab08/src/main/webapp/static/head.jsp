@@ -24,11 +24,11 @@
       background: linear-gradient(0deg, #b6adc9 0%, #b5cbce 100%);
     }
 
-    .navbar {
+    /*.navbar {
       padding-left: 20px !important;
       padding-right: 20px !important;
       background-color: rgba(156, 176, 215, 0.94) !important;
-    }
+    }*/
 
     .table-transparent {
       background-color: #343a4000 !important
