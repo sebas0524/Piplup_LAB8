@@ -46,7 +46,6 @@ public class CrearViajeServlet extends HttpServlet {
         String numboletosStr=request.getParameter("numboletos");
         String costototalStr=request.getParameter("costototal");
         try{
-            viaje.setIdviaje(Integer.parseInt(idviajeStr));
             viaje.setFechareserva(Date.valueOf(fechareservaStr));
             viaje.setFechaviaje(Date.valueOf(fechaviajeStr));
             viaje.setCiudaddestino(ciudadorigen);

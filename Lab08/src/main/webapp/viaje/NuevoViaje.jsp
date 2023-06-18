@@ -7,7 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<% ArrayList<Viaje> listaviaje = (ArrayList<Viaje>) request.getAttribute()%>
+<% ArrayList<Viaje> listaviaje =(ArrayList<Viaje>) request.getAttribute("listaViajes");%>
 <html>
 <jsp:include page="/static/head.jsp">
     <jsp:param name="title" value="Editar Viaje"/>
@@ -26,39 +26,39 @@
         <form method="POST" action="<%=request.getContextPath()%>/CrearViajeServlet">
 
             <div class="mb-3">
-                <label style="color:white;" for="idviaje">Nombre</label>
+                <label style="color:white;" for="idviaje">ID Viaje</label>
                 <input type="text" class="form-control" name="idviaje" id="idviaje">
             </div>
             <div class="mb-3">
-                <label style="color:white;" for="fechareserva">Tecnico</label>
+                <label style="color:white;" for="fechareserva">Fecha Reserva</label>
                 <input type="text" class="form-control" name="fechareserva" id="fechareserva">
             </div>
             <div class="mb-3">
-                <label style="color:white;" for="fechaviaje">Tecnico</label>
+                <label style="color:white;" for="fechaviaje">Fecha Viaje</label>
                 <input type="text" class="form-control" name="fechaviaje" id="fechaviaje">
             </div>
             <div class="mb-3">
-                <label style="color:white;" for="ciudadorigen">Tecnico</label>
+                <label style="color:white;" for="ciudadorigen">Ciudad de Origen</label>
                 <input type="text" class="form-control" name="ciudadorigen" id="ciudadorigen">
             </div>
             <div class="mb-3">
-                <label style="color:white;" for="ciudaddestino">Tecnico</label>
+                <label style="color:white;" for="ciudaddestino">Ciudad de Destino</label>
                 <input type="text" class="form-control" name="ciudaddestino" id="ciudaddestino">
             </div>
             <div class="mb-3">
-                <label style="color:white;" for="numboletos">Tecnico</label>
+                <label style="color:white;" for="numboletos">Número de Boletos</label>
                 <input type="text" class="form-control" name="numboletos" id="numboletos">
             </div>
             <div class="mb-3">
-                <label style="color:white;" for="costototal">Tecnico</label>
+                <label style="color:white;" for="costototal">Costo Total</label>
                 <input type="text" class="form-control" name="costototal" id="costototal">
             </div>
 
-            <label style="color:white;" for="idEstadio">Seguro</label>
-            <select  name="idEstadio" id="idEstadio" class="form-control">
-                <option value="0">Escoja un estadio</option>
-                <% for (Estadio estadio : listaEstadio) {%>
-                <option value="<%=estadio.getEstadios_idEstadios()%>"><%=estadio.getNombre()%>
+            <label style="color:white;" for="seguro">Seguro</label>
+            <select  name="idEstadio" id="seguro" class="seguro">
+                <option value="0">Escoja una Empresa de Seguro</option>
+                <% for (Viaje viaje : listaviaje) {%>
+                <option value="<%=viaje.getEmpresa().getIdEmpresa()%>"><%=viaje.getEmpresa().getNombre()%>
                 </option>
                 <%}%>
             </select>
