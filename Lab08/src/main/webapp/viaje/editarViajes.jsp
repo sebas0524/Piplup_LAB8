@@ -15,6 +15,9 @@
 <jsp:include page="/static/head.jsp">
     <jsp:param name="title" value="Editar Viaje"/>
 </jsp:include>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
 <body>
 <div class='container'>
     <jsp:include page="/navbar.jsp">
@@ -78,7 +81,7 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <h6><label class="form-label">Numero de boletos</label></h6>
+                                    <h6><label class="form-label">Número de boletos</label></h6>
                                     <input class="form-control" type="text"  name="numboletos" id="numboletos" value="<%=viaje.getCiudaddestino()%>" >
                                 </div>
                                 <div class="mb-3">

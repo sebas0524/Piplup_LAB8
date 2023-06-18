@@ -32,8 +32,7 @@ public class CrearViajeServlet extends HttpServlet {
     public Viaje parseViaje(HttpServletRequest request){
         Viaje viaje=new Viaje();
         //Random random = new Random();
-        //EmpresaSeguro empresaSeguro=new EmpresaSeguro();
-
+        //EmpresaSeguro empresaSeguro=new EmpresaSeg
         String idviajeStr=request.getParameter("idviaje");
 
         //String idviajeStr= String.valueOf(random.nextInt(100000000));

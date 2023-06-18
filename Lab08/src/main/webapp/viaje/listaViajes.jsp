@@ -11,13 +11,17 @@
 
 <html>
 <jsp:include page="/static/head.jsp">
-    <jsp:param name="title" value="Página Principal"/>
+    <jsp:param name="title" value="Editar Viaje"/>
 </jsp:include>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
 <body>
 <div class='container'>
     <jsp:include page="/navbar.jsp">
         <jsp:param name="page" value=" "/>
     </jsp:include>
+    <!--<link rel="stylesheet" type="text/css" href="css/style.css">-->
     <div class="pb-5 pt-4 px-3 titlecolor">
         <div class="col-lg-6">
             <h1 class='text-light'>!Estas es tu lista de viajes¡</h1>

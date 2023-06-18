@@ -19,7 +19,6 @@
     .container {
       padding-right: 0 !important;
       padding-left: 0 !important;
-    }
 
     .titlecolor {
       background: linear-gradient(0deg, #b6adc9 0%, #b5cbce 100%);
