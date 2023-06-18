@@ -26,7 +26,8 @@
         style="background-color: black!important;"
     <%}%>
 
-    <a class="navbar-brand" href=" ">Bienvenido al Mundo Televiaje </a>
+    <a class="nav-link" href="" style="color: white;">Bienvenido al Mundo Televiaje</a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
